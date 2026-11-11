@@ -1,0 +1,122 @@
+{
+  "name": "@inspekt-gg/embed",
+  "version": "0.1.0",
+  "description": "The inspekt.gg CS2 skin viewer for JavaScript, React and Vue, plus Render API still URLs.",
+  "keywords": [
+    "cs2",
+    "counter-strike",
+    "skins",
+    "inspekt",
+    "embed",
+    "react",
+    "vue",
+    "webgpu"
+  ],
+  "license": "MIT",
+  "author": "Inspekt",
+  "homepage": "https://inspekt.gg",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inspekt-gg/inspekt-embed.git"
+  },
+  "bugs": {
+    "url": "https://github.com/inspekt-gg/inspekt-embed/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./react": {
+      "import": {
+        "types": "./dist/react.d.ts",
+        "default": "./dist/react.js"
+      },
+      "require": {
+        "types": "./dist/react.d.cts",
+        "default": "./dist/react.cjs"
+      }
+    },
+    "./vue": {
+      "import": {
+        "types": "./dist/vue.d.ts",
+        "default": "./dist/vue.js"
+      },
+      "require": {
+        "types": "./dist/vue.d.cts",
+        "default": "./dist/vue.cjs"
+      }
+    },
+    "./still": {
+      "import": {
+        "types": "./dist/still.d.ts",
+        "default": "./dist/still.js"
+      },
+      "require": {
+        "types": "./dist/still.d.cts",
+        "default": "./dist/still.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "react": ["./dist/react.d.ts"],
+      "vue": ["./dist/vue.d.ts"],
+      "still": ["./dist/still.d.ts"]
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "vue": ">=3.3"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "vue": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.3.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "jsdom": "^29.1.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.12",
+    "vue": "^3.5.45"
+  }
+}
